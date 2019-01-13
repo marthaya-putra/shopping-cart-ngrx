@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Product} from './product.model';
 
-const products = [
+export const availableProducts = [
   {
     id: 'wf',
     name: 'Workflow',
@@ -29,6 +29,6 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return of(products);
+    return of(availableProducts);
   }
 }

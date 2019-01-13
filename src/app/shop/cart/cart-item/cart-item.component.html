@@ -1,0 +1,22 @@
+ <div id="{{item?.product?.id}}" class="cart-item-container">
+  <div class="cart-item-product-name">
+    {{item?.product?.name}}
+  </div>
+  <div class="cart-item-quantity">
+    {{item?.quantity}}
+  </div>
+  <div class="cart-item-x">
+    x
+  </div>
+  <div class="cart-item-product-price">
+    <span class="cart-item-product-original-price" [class.invalid-price]="hasDiscount()">
+    {{item?.product?.price| currency}}
+    </span>
+    <span class="cart-item-product-promo-price" *ngIf="item.finalPrice">
+      {{item.finalPrice| currency}}
+    </span>
+  </div>
+  <div class="cart-item-total-price">
+    {{item?.totalPrice| currency}}
+  </div>
+</div>

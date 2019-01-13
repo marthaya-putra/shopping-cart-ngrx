@@ -1,0 +1,40 @@
+@import "~src/styles";
+
+
+@function convert-width-to-percent($width-px){
+  @return $width-px / $summary-container-width *100%
+}
+
+.cart-item-container{
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+
+  div{
+    margin: 5px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+  }
+
+  .cart-item-quantity {
+    width: convert-width-to-percent(15px);
+  }
+  .cart-item-x {
+    width: convert-width-to-percent(5px);
+  }
+  .cart-item-product-price {
+    width: convert-width-to-percent(150px);
+
+    .invalid-price {
+      text-decoration: line-through;
+      color: red;
+    }
+  }
+  .cart-item-total-price {
+    width: 70px / $summary-container-width *100%;
+  }
+}
+
+

@@ -11,3 +11,4 @@ const {
 } = adapter.getSelectors(selectProductState);
 
 export const selectProducts = selectAll;
+export const selectProductEntities = selectEntities;

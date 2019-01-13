@@ -3,13 +3,12 @@ import {CartEffect} from './cart.effect';
 import {promoCodeDic, PromoCodeService} from '../../cart/promo-code.service';
 import {provideMockActions} from '@ngrx/effects/testing';
 import {Store, StoreModule} from '@ngrx/store';
-import {appReducers} from '../../../store/app.reducer';
-import {cartReducer} from '../reducers/cart.reducer';
 import {AppState} from '../../../store/app.state';
 import {AddItemToCart, ApplyPromoCode, GetPromoCode} from '../actions/cart.action';
-import {hot, cold} from 'jasmine-marbles';
+import {cold} from 'jasmine-marbles';
 import {GetProductsSuccess} from '../actions/products.action';
 import {of} from 'rxjs';
+import {ShopTestingModule} from '../../shop.module.spec';
 
 describe('CartEffect', () => {
   let effect: CartEffect;
@@ -19,14 +18,8 @@ describe('CartEffect', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot(
-        {
-          ...appReducers,
-          feature: cartReducer,
-        }),
-      ],
+      imports: [ShopTestingModule],
       providers: [
-        CartEffect,
         provideMockActions(() => actions),
         {
           provide: PromoCodeService,
@@ -57,7 +50,7 @@ describe('CartEffect', () => {
       ));
     });
     const promoCode = 'RRD4D32';
-    it('should dispatch ApplyPromoCode Action', () => {
+    it('should dispatch expected ApplyPromoCode Action', () => {
 
       promoService.get.and.returnValue(of(promoCodeDic[promoCode]));
       promoService.validatePromo.and.returnValue(promoCodeDic[promoCode]);

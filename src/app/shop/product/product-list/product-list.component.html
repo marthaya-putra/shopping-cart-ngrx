@@ -1,3 +1,8 @@
-<div *ngFor="let product of products$ | async">
- {{ product.id }} - {{ product.name }} - {{ product.price}}
-</div>
+<app-product-detail [products]="products$ | async" (quantityChanged)="quantityChanged($event)">
+
+</app-product-detail>
+<button id="goto-summary-button"
+        (click)="goToSummaryPage()"
+        [disabled]="isCartEmpty$|async">
+  Continue
+</button>

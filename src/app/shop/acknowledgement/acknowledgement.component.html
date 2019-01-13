@@ -1,0 +1,32 @@
+<table>
+  <tbody>
+  <tr>
+    <td>
+      <b>Products:</b>
+    </td>
+    <td id="products">
+      {{ cartItems$ | async }}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Promotion:</b>
+    </td>
+    <td id="promo-code">
+      <span *ngIf="promo$ | async as promo">
+      <span *ngIf="promo.applicable">{{ promo.code }}</span>
+    </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Total:</b>
+    </td>
+    <td>
+      <span id="total-price" *ngIf="total$ | async as total">
+      {{ total | currency}}
+      </span>
+    </td>
+  </tr>
+  </tbody>
+</table>

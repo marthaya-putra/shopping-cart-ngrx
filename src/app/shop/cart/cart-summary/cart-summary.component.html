@@ -1,0 +1,28 @@
+<div class="summary-container">
+  <app-cart-item *ngFor="let cartSummary of cartSummaryList$|async" [item]="cartSummary"></app-cart-item>
+  <div>
+    <label for="promo-code-input">Promo Code: </label>
+    <input  id="promo-code-input" #promoCodeInput>
+    <button id="apply-promo-btn" (click)="applyPromoCode(promoCodeInput.value)">Apply</button>
+  </div>
+  <div><label>Total: </label>
+    <span id="total-pre-discount">
+    {{ totalPreDiscount$ | async | currency}}
+    </span>
+  </div>
+  <div *ngIf="totalDiscount$ | async as discount">
+    <label>Discount: </label>
+    <span id="total-discount" [class.discount-text]="discount > 0 ">
+      {{ discount | currency}}
+    </span>
+  </div>
+  <div>
+    <label>Grand Total: </label>
+    <span id="grand-total">
+      {{ grandTotal$ | async| currency}}
+    </span>
+  </div>
+  <div>
+    <button id="continue-btn" (click)="continue()">Continue</button>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import {adapter, CartState, initialState} from '../state/cart.state';
 import {CartAction, CartActionType} from '../actions/cart.action';
-import {Condition, Operator} from '../../cart/promo-rule.model';
 
 export const cartReducer = (state = initialState, action: CartAction): CartState => {
   switch (action.type) {

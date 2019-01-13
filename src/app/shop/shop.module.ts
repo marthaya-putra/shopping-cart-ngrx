@@ -5,14 +5,22 @@ import {StoreModule} from '@ngrx/store';
 import {productsReducer} from './store/reducers/products.reducer';
 import {ProductEffect} from './store/effects/product.effect';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import {CartEffect} from './store/effects/cart.effect';
+import { AcknowledgementComponent } from './acknowledgement/acknowledgement.component';
+import {cartReducer} from './store/reducers/cart.reducer';
 
 @NgModule({
-  declarations: [ProductListComponent],
+  declarations: [ProductListComponent, ProductDetailComponent, CartSummaryComponent,
+    CartItemComponent, AcknowledgementComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('products', productsReducer),
-    EffectsModule.forFeature([ProductEffect])
+    StoreModule.forFeature('cart', cartReducer),
+    EffectsModule.forFeature([ProductEffect, CartEffect])
   ],
-  exports: [ProductListComponent]
+  exports: [ProductListComponent, CartSummaryComponent, AcknowledgementComponent]
 })
 export class ShopModule { }

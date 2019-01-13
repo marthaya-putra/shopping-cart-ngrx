@@ -1,0 +1,10 @@
+export const productNameCssSelector = '.cart-item-product-name';
+export const quantityCssSelector = '.cart-item-quantity';
+export const originalPriceCssSelector = '.cart-item-product-original-price';
+export const promoPriceCssSelector = '.cart-item-product-promo-price';
+export const totalPriceCssSelector = '.cart-item-total-price';
+export const totalPreDiscountPriceCssSelector = '#total-pre-discount';
+export const totalDiscountPriceCssSelector = '#total-discount';
+export const grandTotalPriceCssSelector = '#grand-total';
+export const promoCodeInputCssSelector = '#promo-code-input';
+export const applyPromoCodeBtnCssSelector = '#apply-promo-btn';

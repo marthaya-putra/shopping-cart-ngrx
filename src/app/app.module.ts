@@ -9,6 +9,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {ShopModule} from './shop/shop.module';
 import {EffectsModule} from '@ngrx/effects';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {EffectsModule} from '@ngrx/effects';
     AppRoutingModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     ShopModule
   ],
