@@ -1,8 +1,4 @@
 <app-product-detail [products]="products$ | async" (quantityChanged)="quantityChanged($event)">
 
 </app-product-detail>
-<button id="goto-summary-button"
-        (click)="goToSummaryPage()"
-        [disabled]="isCartEmpty$|async">
-  Continue
-</button>
+

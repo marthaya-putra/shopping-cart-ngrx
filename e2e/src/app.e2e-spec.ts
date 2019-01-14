@@ -33,7 +33,7 @@ describe('workspace-project App', () => {
     const expectedGrandTotalPrice = expectedGrandTotalPreDiscountPrice - expectedTotalDiscountPrice;
 
     it('should display available products', () => {
-      AppPage.navigateTo('products');
+      AppPage.navigateTo('shop');
       availableProducts.forEach(product => {
         const props = productsPage.getProductPropsById(product.id);
         expect(props.name).toEqual(product.name);
@@ -47,7 +47,6 @@ describe('workspace-project App', () => {
       inputQty.clear();
       inputQty.sendKeys(purchasedQty);
       inputQty.sendKeys(Key.TAB);
-      productsPage.getContinueButton().click();
 
       const props = cartSummaryPage.getProductPropsById(wfProductId);
 

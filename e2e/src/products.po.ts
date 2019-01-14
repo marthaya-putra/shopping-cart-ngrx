@@ -17,11 +17,7 @@ export class ProductsPage {
     return productEl.$('input');
   }
 
-  getContinueButton() {
-    return element(by.tagName('button'));
-  }
-
   private getProductElById(id: string) {
-    return element(by.css(`#${id}`));
+    return element(by.css(`#product-${id}`));
   }
 }

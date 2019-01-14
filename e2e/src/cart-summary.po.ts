@@ -11,7 +11,7 @@ import {
 export class CartSummaryPage {
 
   getProductPropsById(id: string) {
-    const productEl = element(by.css(`#${id}`));
+    const productEl = element(by.css(`#cart-item-${id}`));
     return {
       name: productEl.$(productNameCssSelector).getText(),
       quantity: productEl.$(quantityCssSelector).getText(),

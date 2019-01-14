@@ -11,10 +11,11 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import {CartEffect} from './store/effects/cart.effect';
 import { AcknowledgementComponent } from './acknowledgement/acknowledgement.component';
 import {cartReducer} from './store/reducers/cart.reducer';
+import { ShopComponent } from './shop.component';
 
 @NgModule({
   declarations: [ProductListComponent, ProductDetailComponent, CartSummaryComponent,
-    CartItemComponent, AcknowledgementComponent],
+    CartItemComponent, AcknowledgementComponent, ShopComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('products', productsReducer),
